@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RESULTS</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'images_size/style.css' %}" type="text/css">
+</head>
+
+<body>
+  <a href="{% url 'home' %}">Click here</a><br>
+  <h2>{{ error }}</h2>
+  <h2>{{ runtime }}</h2>
+  <table>
+    <tr>
+      {% if error == 'No More then 10 files'  %}
+      <th>No More then 10 files</th>
+      {% endif %}
+      <th>Image Url</th>
+      <th>{{ pick }}</th>
+    </tr>
+      {% for key, value in images_split.items %}
+    <tr>
+      <td><a href="{{ key }}" target="_blank">{{ key }}</a></td>
+      <td>{{ value }}</td>
+    </tr>
+      {% endfor %}
+  </table>
+</body>
+</html>

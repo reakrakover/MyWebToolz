@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>INDEX</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'home_page/style.css' %}" type="text/css">
+    <script src="{% static 'home_page/bundle.js' %}"></script>
+</head>
+<body>
+  <form action="{% url 'results' %}" method="POST" onsubmit="formSubmit()">
+      {% csrf_token %}
+      <textarea class="textarea" rows="10" name="image_url" onkeyup="checkLength()" placeholder="Enter images links here..."></textarea>
+      <br>
+      <div class="file_size">
+        <input type="radio" name="file_size" value="bytes">
+        <label for="contactChoice1">Bytes</label>
+
+        <input type="radio" name="file_size" value="kilobytes" checked>
+        <label for="contactChoice2">Kilobytes</label>
+
+        <input type="radio" name="file_size" value="megabytes">
+        <label for="contactChoice3">Megabytes</label>
+      </div>
+      
+      <br>
+    <input id="button" type="submit" value="Get Images Size!"/>
+  </form>
+</body>
+</html>
