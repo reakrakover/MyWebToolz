@@ -1,30 +1,73 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>INDEX</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'home_page/style.css' %}" type="text/css">
-    <script src="{% static 'home_page/bundle.js' %}"></script>
+  <meta charset="utf-8">
+  <title>Images File Size Tool</title>
+  <meta name="description" content="Got a lot of images links and you need to find their file size? This is the best tool for you! Just enter the images URL and we will do the job for you">
+  <meta name="author" content="Ridi-Fine">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta property="og:title" content="My Web Toolz">
+  <meta property="og:url" content="https://www.mywebtoolz.com">
+  <meta property="og:site_name" content="My Web Toolz">
+  <meta property="og:description" content="Got a lot of images links and you need to find their file size? This is the best tool for you! Just enter the images URL and we will do the job for you">
+  <meta property="og:image:width" content="300">
+  <meta property="og:image:height" content="300">
+  {% load static %}
+  <link rel="shortcut icon" href="{% static 'home_page/favicon.ico' %}" type="image/x-icon">
+  <link rel="stylesheet" href="{% static 'home_page/style.css' %}" type="text/css">
+  <script src="{% static 'home_page/bundle.js' %}"></script>
+  <script type="text/javascript" src="{% static 'home_page/jquery-3.2.1.min.js' %}"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111119508-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-111119508-1');
+  </script>
+
+
 </head>
 <body>
-  <form action="{% url 'results' %}" method="POST" onsubmit="formSubmit()">
-      {% csrf_token %}
-      <textarea class="textarea" rows="10" name="image_url" onkeyup="checkLength()" placeholder="Enter images links here..."></textarea>
-      <br>
-      <div class="file_size">
-        <input type="radio" name="file_size" value="bytes">
-        <label for="contactChoice1">Bytes</label>
+  <div id="main">
+    <div class="titles">
+      <h1>Images File Size Tool</h1>
+      <h2 id="description">If you have a lot of images links and you need to get their file size, you just came to the right place!<br> The instructions are pretty simple: paste all your URLs list (each link seperated by new line) to the field below and enjoy while we get all your images file size.</h2>
+    </div>
+    <div id="form">
+      <form action="{% url 'results' %}" method="POST" onsubmit="formSubmit()">
+          {% csrf_token %}
+          <textarea id="textArea" class="textarea" rows="10" name="image_url" onkeyup="checkLength()" placeholder="Enter images links here..."></textarea>
+          <br>
+          <div class="file_size">
+            <input type="radio" name="file_size" value="bytes">
+            <label>Bytes</label>
 
-        <input type="radio" name="file_size" value="kilobytes" checked>
-        <label for="contactChoice2">Kilobytes</label>
+            <input type="radio" name="file_size" value="kilobytes" checked>
+            <label>Kilobytes</label>
 
-        <input type="radio" name="file_size" value="megabytes">
-        <label for="contactChoice3">Megabytes</label>
-      </div>
-      
-      <br>
-    <input id="button" type="submit" value="Get Images Size!"/>
-  </form>
+            <input type="radio" name="file_size" value="megabytes">
+            <label>Megabytes</label>
+          </div>
+          <br>
+        <input id="button" type="submit" value="Get Images Size!"/>
+      </form>
+    </div>
+    <div id="ytvid">
+      <iframe id="player" width="640" height="390"
+      src=""
+      frameborder="0" style="display: none"></iframe>
+    </div>
+    <div id="gif">
+      <span id="massage"></span>
+      <img id="loadingGif" src="{% static 'home_page/Spinner.gif' %}" alt="loading" style="display:none">
+    </div>
+    <div class="footer">
+      <p>Copyright © 2018 Ridi-Fine LLC. All Rights Reserved.</p>
+    </div>
+  </div>
+
 </body>
 </html>

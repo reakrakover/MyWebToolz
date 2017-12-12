@@ -1,5 +1,6 @@
 body {
-  background-color: #3b548d;
+  background-color: white;
+  margin: 0;
 }
 
 form {
@@ -14,4 +15,80 @@ textarea {
 
 label {
   color: white;
+}
+
+#main {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #3b548d;
+  box-sizing: border-box;
+  border-style: solid;
+  border-width: 5px;
+  border-color: azure;
+}
+
+.titles {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  font-size: 3.5em;
+  font-weight: 100;
+  color: azure;
+}
+
+h2 {
+  width: 70%;
+  color: azure;
+  font-weight: 100;
+  text-align: center;
+}
+
+#ytvid {
+  display: flex;
+  justify-content: center;
+}
+
+#gif {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+#massage {
+  color: azure;
+  font-size: 20px;
+  text-align: center;
+}
+
+#loadingGif {
+  height: 60px;
+}
+
+#massage {
+  display: flex;
+  justify-content: center;
+}
+
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   height: 3%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: #009688;
+   color: white;
+   text-align: center;
 }

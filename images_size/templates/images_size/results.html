@@ -1,30 +1,73 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>RESULTS</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'images_size/style.css' %}" type="text/css">
+  <meta charset="utf-8">
+  <title>Images File Size Tool</title>
+  <meta name="description" content="Got a lot of images links and you need to find their file size? This is the best tool for you! Just enter the images URL and we will do the job for you">
+  <meta name="author" content="Ridi-Fine">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta property="og:title" content="My Web Toolz">
+  <meta property="og:url" content="https://www.mywebtoolz.com">
+  <meta property="og:site_name" content="My Web Toolz">
+  <meta property="og:description" content="Got a lot of images links and you need to find their file size? This is the best tool for you! Just enter the images URL and we will do the job for you">
+  <meta property="og:image:width" content="300">
+  <meta property="og:image:height" content="300">
+  {% load static %}
+  <link rel="shortcut icon" href="{% static 'images_size/favicon.ico' %}" type="image/x-icon">
+  <link rel="stylesheet" href="{% static 'images_size/style.css' %}" type="text/css">
+  <script src="{% static 'images_size/bundle.js' %}"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111119508-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-111119508-1');
+  </script>
+
 </head>
 
 <body>
-  <a href="{% url 'home' %}">Click here</a><br>
-  <h2>{{ error }}</h2>
-  <h2>{{ runtime }}</h2>
-  <table>
-    <tr>
+  <div id="main">
+    <div class="titles">
+      <h1>HERE ARE YOUR RESULTS</h1>
+      <h2><a id="home" href="{% url 'home' %}">Click here</a> If you want to get more images file size</h2><br>
+        <div class="center">
+          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+          <!-- My Web Toolz Home Page -->
+          <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="ca-pub-4162519902320971"
+               data-ad-slot="7648373666"
+               data-ad-format="auto"></ins>
+          <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
       {% if error == 'No More then 10 files'  %}
-      <th>No More then 10 files</th>
+      <h2>{{ error }}</h2>
       {% endif %}
-      <th>Image Url</th>
-      <th>{{ pick }}</th>
-    </tr>
-      {% for key, value in images_split.items %}
-    <tr>
-      <td><a href="{{ key }}" target="_blank">{{ key }}</a></td>
-      <td>{{ value }}</td>
-    </tr>
-      {% endfor %}
-  </table>
+    </div>
+    <table>
+      <tr>
+        {% if error == 'No More then 10 files'  %}
+        <th>No More then 10 files</th>
+        {% endif %}
+        <th>Image Url</th>
+        <th>{{ pick }}</th>
+      </tr>
+        {% for key, value in images_split.items %}
+      <tr>
+        <td><a class="links" href="{{ key }}" target="_blank">{{ key }}</a></td>
+        <td>{{ value }}</td>
+      </tr>
+        {% endfor %}
+    </table>
+    <div class="footer">
+      <p>Copyright © 2018 Ridi-Fine LLC. All Rights Reserved.</p>
+    </div>
+  </div>
 </body>
 </html>
