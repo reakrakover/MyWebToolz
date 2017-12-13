@@ -33,8 +33,7 @@
   <div id="main">
     <div class="titles">
       <h1>HERE ARE YOUR RESULTS</h1>
-      <h2><a id="home" href="{% url 'home' %}">Click here</a> If you want to get more images file size</h2><br>
-        <div class="center">
+      <div class="center">
           <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
           <!-- My Web Toolz Home Page -->
           <ins class="adsbygoogle"
@@ -46,6 +45,8 @@
           (adsbygoogle = window.adsbygoogle || []).push({});
           </script>
         </div>
+      <h2><a id="home" href="{% url 'home' %}">Click here</a> If you want to get more images file size</h2><br>
+
       {% if error == 'No More then 10 files'  %}
       <h2>{{ error }}</h2>
       {% endif %}

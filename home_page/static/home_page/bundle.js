@@ -30,7 +30,7 @@ function formSubmit() {
   document.getElementById('ytvid').style.display = "flex";
   document.getElementById('player').style.display = "block";
   document.getElementById('loadingGif').style.display = "block";
-  document.getElementById('massage').innerHTML = "<span>" + count + " url's?! that could take a while...<br> so please enjoy this lovely video while we getting all your images size</span>";
+  document.getElementById('massage').innerHTML = "<span>" + count + " url's?! this could take a while...<br> so please enjoy this lovely video while we getting all your images size</span>";
 
   var videos = [
     "FNQxxpM1yOs",
